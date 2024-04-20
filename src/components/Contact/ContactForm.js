@@ -16,14 +16,8 @@ export default function ContactForm() {
       onSubmit={handleSubmit(onSubmit)}
       className="mt-12 text-base xs:text-lg sm:text-xl font-medium leading-relaxed font-in"
     >
-      Hello! My name is{" "}
-      <input
-        type="text"
-        placeholder="your name"
-        {...register("name", { required: true, maxLength: 80 })}
-        className="outline-none border-0 p-0 mx-2 focus:ring-0 placeholder:text-center placeholder:text-lg border-b border-gray 
-        focus:border-gray bg-transparent"
-      />
+      Hello! My name is Laís Nuto
+
       and I want to discuss a potential project. You can email me at
       <input type="email" placeholder="your@email" {...register("email", {})}  className="outline-none border-0 p-0 mx-2 focus:ring-0 placeholder:text-center placeholder:text-lg border-b border-gray 
         focus:border-gray bg-transparent"/>
