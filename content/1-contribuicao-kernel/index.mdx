@@ -35,10 +35,11 @@ Essa correção foi vital para nosso entendimento sobre como estruturar melhor o
 
 ```bash
 # Exemplo de como o código deveria estar estruturado
-{
-    iio_device_claim_direct_scoped(device);
-    // Código que executa enquanto o lock está ativo
-}
+
+    iio_device_claim_direct_scoped(device){
+        // Código que executa enquanto o lock está ativo
+    }
+    unreachable();
 
 ```
 
