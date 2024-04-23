@@ -12,37 +12,18 @@ tags:
 - Open Source
 ---
 
-Minha jornada no curso MAC0470 (Desenvolvimento de Software Livre) me levou a enfrentar um desafio estimulante: minha primeira contribuição para o Kernel Linux, mais especificamente para o subsistema IIO. Trabalhei em parceria com Jorge Harriosn, e juntos decidimos adotar uma abordagem colaborativa que enriqueceu nossa experiência.
+### Mais passos no mundo de software livre
 
-### Entendendo o IIO e a Contribuição
+Depois de ter contribuido com o Kernel, agora era hora de avançar um pouco mais na disciplina e contribuir com o kworkflow,  uma ferramenta que ajuda a automatizar o fluxo de trabalho dos desenvolvedores do kernel Linux.
 
-Inicialmente, focamos em entender os `character devices` e o funcionamento do subsistema IIO. O aprendizado sobre como os dispositivos IIO operam em canais para realizar operações de leitura e escrita foi fundamental para nossa contribuição.
+### Recuperando o atraso
 
-### Decisão e Execução
+Durante as aulas de introdução e preparação do ambiente para contribuir com o kw, eu estava viajando para uma conferência, por isso minha dupla, Jorge Harrison foi essencial nessa etapa da contribuição. 
 
-Escolhemos trabalhar com a sugestão de implementar a função `iio_device_claim_direct_scoped`, que promove uma gestão de lock mais eficiente e segura. A ideia é que o lock seja automaticamente liberado ao sair do escopo, reduzindo a possibilidade de erros humanos que podem ocorrer com o método tradicional de `claim` e `release`.
+Quando retornei, ele me atualizou sobre o conteúdo perdido e assim podemos fazer juntos a parte poder fazer um fork do repositório kworkflow/kworkflow e desenvolver na branch unstable 
 
-Implementamos essa modificação nos módulos `ad7606.c` e `ad7923.c` do diretório `drivers/iio/adc`, sugerindo uma prática mais segura e moderna de manipulação de locks.
+### Colaboração e contribuição
 
-### Colaboração e Revisão
+Achar algo para contribuir foi relativamente simples, já que em pouco tempo olhando, o Jorge achou uma váriavel  que estava sendo definida duas vezes com o mesmo valor. Então nossa solução para esse problema foi apenas apagar uma dessas declarações para evitar a redundância de código.
 
-Jorge e eu decidimos que cada um faria uma sugestão diferente inicialmente, mas, como o commit precisa ser único, optamos por revisar juntos nossos códigos antes de finalizar a contribuição. Enviamos nossas alterações e, ao receber o feedback dos monitores, percebemos a necessidade de ajustes.
-
-Um dos feedbacks mais significativos foi sobre a falta de chaves `{}` após `iio_device_claim_direct_scoped`. Isso nos levou a revisar nosso código e entender melhor a função e sua necessidade de estruturação dentro de blocos de código para garantir o escopo correto.
-
-### Aprendizado Contínuo
-Essa correção foi vital para nosso entendimento sobre como estruturar melhor o código e garantir práticas de programação seguras. Após ajustar nosso patch conforme as orientações, reenviamos para nova avaliação.
-
-```bash
-# Exemplo de como o código deveria estar estruturado
-{
-    iio_device_claim_direct_scoped(device);
-    // Código que executa enquanto o lock está ativo
-}
-
-```
-
-### Conclusões
-
-Esta experiência foi bem legal, pois aprendi não só um pouco mais sobre programação no Kernel mas também sobre a importância da colaboração e da revisão contínua no processo de desenvolvimento de software. Estou ansiosa para continuar contribuindo e aprendendo com a comunidade de software livre.
-
+---
