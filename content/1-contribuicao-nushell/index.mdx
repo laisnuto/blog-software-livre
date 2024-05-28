@@ -1,0 +1,114 @@
+---
+title: "Segunda parte de MAC0470: Primeira Contribuição no Nushell"
+description: "Relato da minha primeira contribuição para o Nushell"
+image: "../../public/blogs/pinguin-linux.png"
+publishedAt: "2024-05-14"
+updatedAt: "2024-05-27"
+author: "laisnuto"
+isPublished: true
+tags:
+- Nushell
+- Software Livre
+- Contribuição
+
+---
+
+Na segunda etapa da disciplina MAC0470 (Desenvolvimento de Software Livre), eu e minha dupla tínhamos que escolher um projeto para continuar contribuindo. Acabamos escolhendo o Nushell, um shell moderno e inovador que visa trazer o poder das pipelines de dados do UNIX para um novo nível de usabilidade e funcionalidade.
+
+### O que é o Nushell? 
+O Nushell é uma shell orientada a objetos, projetada para trabalhar com dados estruturados como tabelas e registros, facilitando a manipulação de informações de maneira intuitiva e poderosa. Diferente de shells tradicionais como Bash ou Zsh, que tratam a maioria das saídas como texto, o Nushell trata a saída de comandos como dados estruturados, permitindo operações complexas com mais facilidade.
+
+### Set up do ambiente
+Para poder contribuir com o Nushell, foi necessário configurar meu ambiente de desenvolvimento:
+
+#### Instalar Rust: O Nushell é escrito em Rust, então o primeiro passo foi instalar o compilador Rust e a ferramenta de gerenciamento de pacotes Cargo.
+```bash
+curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
+source $HOME/.cargo/env
+```
+
+-Construir e Instalar o Nushell: Para garantir que tudo estava funcionando corretamente, construí e instalei o Nushell localmente.
+```bash
+cargo install nu
+```
+
+Executar o Nushell: Após a instalação, bastava digitar nu no terminal para iniciar o Nushell.
+
+```bash
+nu
+```
+
+
+### 1ª contribuição: git commit
+Resolvi começar com algo relativamente simples para entender como funciona o ciclo de contribuição dos scripts do Nushell. Observei que o comando git commit tinha poucas opções de completion implementadas. Utilizando a saída do comando git commit --help, fui capaz de identificar todas as opções e escrever o código de completion.
+
+Aqui está o resultado da minha contribuição:
+
+Antes:
+```bash
+# Commit changes
+export extern "git commit" [
+  --all(-a)                                           # automatically stage all modified and deleted files
+  --amend                                             # amend the previous commit rather than adding a new one
+  --message(-m)                                       # specify the commit message rather than opening an editor
+  --no-edit                                           # don't edit the commit message (useful with --amend)
+]
+
+```
+
+Depois:
+```bash
+# Commit changes
+export extern "git commit" [
+  --all(-a)                                           # automatically stage all modified and deleted files
+  --amend                                             # amend the previous commit rather than adding a new one
+  --message(-m): string                               # specify the commit message rather than opening an editor
+  --no-edit                                           # don't edit the commit message (useful with --amend)
+  --reuse-message(-C): string                         # reuse the message from a previous commit
+  --reedit-message(-c): string                        # reuse and edit message from a commit
+  --fixup: string                                     # create a fixup/amend commit
+  --squash: string                                    # squash commit for autosquash rebase
+  --reset-author                                      # reset author information
+  --short                                             # short-format output for dry-run
+  --branch                                            # show branch info in short-format
+  --porcelain                                         # porcelain-ready format for dry-run
+  --long                                              # long-format output for dry-run
+  --null(-z)                                          # use NUL instead of LF in output
+  --file(-F): string                                  # read commit message from file
+  --author: string                                    # override commit author
+  --date: string                                      # override commit date
+  --template(-t): string                              # use commit message template file
+  --signoff(-s)                                       # add Signed-off-by trailer
+  --no-signoff                                        # do not add Signed-off-by trailer
+  --trailer: string                                   # add trailer to commit message
+  --no-verify(-n)                                     # bypass pre-commit and commit-msg hooks
+  --verify                                            # do not bypass pre-commit and commit-msg hooks
+  --allow-empty                                       # allow commit with no changes
+  --allow-empty-message                               # allow commit with empty message
+  --cleanup: string                                   # cleanup commit message
+  --edit(-e)                                          # edit commit message
+  --no-edit                                           # do not edit commit message
+  --amend                                             # amend previous commit
+  --include(-i)                                       # include given paths in commit
+  --only(-o)                                          # commit only specified paths
+  --pathspec-from-file: string                        # read pathspec from file
+  --pathspec-file-nul                                 # use NUL character for pathspec file
+  --untracked-files(-u): string                       # show untracked files
+  --verbose(-v)                                       # show diff in commit message template
+  --quiet(-q)                                         # suppress commit summary
+  --dry-run                                           # show paths to be committed without committing
+  --status                                            # include git-status output in commit message
+  --no-status                                         # do not include git-status output
+  --gpg-sign(-S):string                               # GPG-sign commit
+  --no-gpg-sign                                       # do not GPG-sign commit
+  ...pathspec: string                                 # commit files matching pathspec
+]
+
+```
+
+Depois de fazer as mudanças fiz um pull request e estou no aguardo da resposta para ver se foi aceito ou não
+
+### Próximos passos
+Agora que concluí minha primeira contribuição, estou animada para continuar trabalhando no Nushell e explorar mais áreas onde posso contribuir. 
+
+Pretendo explorar mais partes do Git, com as quais tenho mais familiaridade, especialmente aquelas que ainda não possuem muitas completions. Além disso, estou interessada em expandir minhas contribuições para outras ferramentas e comandos dentro do Nushell, aprendendo e ajudando a melhorar a experiência geral dos usuários.
