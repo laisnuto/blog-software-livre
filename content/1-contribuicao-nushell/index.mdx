@@ -3,7 +3,7 @@ title: "Projetos em dupla: Primeira Contribuição no Nushell"
 description: "Relato da minha primeira contribuição para o Nushell"
 image: "../../public/blogs/nushell.png"
 publishedAt: "2024-05-14"
-updatedAt: "2024-05-27"
+updatedAt: "2024-06-05"
 author: "laisnuto"
 isPublished: true
 tags:
@@ -112,3 +112,25 @@ Depois de fazer as mudanças fiz um pull request e estou no aguardo da resposta 
 Agora que concluí minha primeira contribuição, estou animada para continuar trabalhando no Nushell e explorar mais áreas onde posso contribuir. 
 
 Pretendo explorar mais partes do Git, com as quais tenho mais familiaridade, especialmente aquelas que ainda não possuem muitas completions. Além disso, estou interessada em expandir minhas contribuições para outras ferramentas e comandos dentro do Nushell, aprendendo e ajudando a melhorar a experiência geral dos usuários.
+
+
+
+### Atualizações
+Horas depois de abriR o Pull Request eles aceitaram e mergearam meu commit. Porém no dia 5 de junho às 9:21 recebi um email dizendo que o commit tinha sido revertido porque se rodasse os comando na ordem abaixo, quebrava:
+
+```bash
+use custom-completions/git/git-completions.nu *
+use aliases/git/git-aliases.nu *
+```
+
+Porém às 9:41, eles re-reverteram o commit pois se os comandos fossem nessa ordem funcionaram:
+
+```bash
+use aliases/git/git-aliases.nu *
+use custom-completions/git/git-completions.nu *
+```
+
+Foi interessante ver essas reviravoltas do mundo de Software Livre, por alguns minutos fiquei preocupada procurando o erro até ver que estava tudo ok. No fim, foi uma situação engraçada ver como ficou o pull request final:
+
+![print git](public/blogs/revert-revert-git-commit.png)
+
