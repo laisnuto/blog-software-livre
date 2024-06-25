@@ -13,4 +13,18 @@ tags:
 - contribuição
 ---
 
-### Mais passos no mundo de software livre
+Durante o semestre, meu grupo e eu tivemos a oportunidade de trabalhar em contribuições para dois projetos open source: KW e Nushell. Esta jornada foi uma união de conhecimentos adquiridos ao longo das aulas e desafios práticos que enfrentamos.
+
+
+### Contribuindo com KW
+O KW é um projeto fascinante com uma boa documentação, o que facilitou nosso trabalho de criar scripts de autocompletar para ele. O comando kw init foi especialmente interessante de trabalhar, pois possui uma flag --arch que especifica a arquitetura para a compilação do kernel. Descobrimos que as arquiteturas disponíveis estão listadas no diretório arch dentro da árvore do kernel, e escrevemos uma função para criar uma autocompletar inteligente para isso.
+
+### Setup de Instalação
+A instalação do KW é feita via um script setup.sh. Originalmente, pensamos em colocar uma cópia do nosso script de autocompletar dentro do repositório do KW, mas decidimos que seria melhor baixá-lo durante a instalação. Dessa forma, evitamos a necessidade de manter o script atualizado em dois repositórios diferentes. O fluxo que criamos detecta se o usuário possui o Nushell instalado, pergunta se ele deseja instalar as completions e, em caso afirmativo, baixa o script e instrui o usuário sobre como ativá-lo.
+
+### Contribuindo com Nushell
+
+Para o Nushell, criamos scripts de autocompletar para o KW. Essa integração foi possível graças ao bom suporte de documentação e à flexibilidade do Nushell para escrever scripts de completions. Foi um desafio interessante e gratificante ver como as ferramentas podem ser integradas para melhorar a experiência do usuário.
+
+### Conclusão
+Contribuir para o KW e o Nushell foi uma experiência enriquecedora que combinou nossos conhecimentos teóricos com desafios práticos. Aprendemos muito sobre como funciona o ecossistema de software livre e como podemos contribuir para ele de maneira eficaz.
