@@ -20,7 +20,7 @@ const AboutCoverSection = () => {
             <p className='font-medium capitalize mt-4 text-base'>
             Essas são minhas maiores paixões. Desde pequena pude explorar o lado mais criativo da matemática através das Olimpíadas Científicas. Essas competições me abiram muitas portas, desde bolsas de estudo até representar o Brasil na Olimpíada Europeia de Meninas na Matemática (EGMO).
 
-            Motivada por essas experiências, comecei  a ajudar jovens a terem oportunidades acadêmicas e aumentar a representatividade feminina nas áreas de STEM. Sou coordenadora do projeto Sem Parar, uma iniciativa voluntária para incentivar a participação feminina nas Olimpíadas Científicas e faço faz parte da comissão acadêmica do Torneio Meninas na Matemática, também fui voluntária em projetos educacionais como o NOIC e Impacta Jovem Brasil. 
+            Motivada por essas experiências, comecei  a ajudar jovens a terem as mesmas oportunidades acadêmicas que eu tive e aumentar a representatividade feminina nas áreas de STEM. Sou coordenadora do projeto Sem Parar, uma iniciativa voluntária para incentivar a participação feminina nas Olimpíadas Científicas e faço faz parte da comissão acadêmica do Torneio Meninas na Matemática, também fui voluntária em projetos educacionais como o NOIC e Impacta Jovem Brasil. 
             
             Ao ingressar no curso de computação, busquei combinar esses interesses em tecnologia e educação. No final de 2022, me juntei ao time fundador da Teachy, hoje a maior EdTech de IA na América Latina. 
 
