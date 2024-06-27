@@ -17,12 +17,12 @@ tags:
 Seguir tutoriais de configuração de ambientes e empacotamento de software sempre traz desafios inesperados. Na aula de hoje de software livre, tive que configurar um ambiente Debian e empacotar uma biblioteca Perl seguindo o tutorial fornecido. Mais uma vez as coisas não foram tão simples e vou compartilhar um pouco dos desafios e tentativas de solução.
 
 
-### Configurando o Ambiente de Desenvolvimento
+## Configurando o Ambiente de Desenvolvimento
 
 O primeiro passo do tutorial era simples: instalar o Debian. Utilizei o podman para rodar uma máquina virtual (VM) com a versão testing do Debian, garantindo que todos os comandos e passos do tutorial fossem executados em um sistema Debian adequado. A instalação correu bem, e rapidinho já estava com a VM funcionando.
 
 
-### Instalação das Dependências
+## Instalação das Dependências
 
 Com o Debian instalado, o próximo passo foi instalar as dependências necessárias para o empacotamento de bibliotecas Perl. Utilizei o comando abaixo para instalar os pacotes requeridos:
 ```bash
@@ -32,7 +32,7 @@ sudo apt install devscripts debhelper debian-policy git-buildpackage pkg-perl-to
 Depois ajeitei os arquuivos de control e copyright conforme solicitado e até então o tutorial corria bem.
 
 
-### Primeira Tentativa com pbuilder
+## Primeira Tentativa com pbuilder
 
 Chegando à etapa de construção do ambiente chroot com pbuilder, executei o comando:
 
@@ -43,7 +43,7 @@ sudo pbuilder create
 Foi aí que tive o primeiro problema: um erro de permissão. Após algumas tentativas frustradas de resolver a questão, segui a instrução do monitor de tentar usar o docker.
 
 
-### Reiniciando com Docker
+## Reiniciando com Docker
 
 Decidi recomeçar do zero, desta vez utilizando Docker para garantir um ambiente isolado e controlado. Repeti todos os passos até chegar novamente à etapa de criar o chroot com pbuilder.
 
@@ -64,7 +64,7 @@ Build.PL  LICENSE   META.json  README.md  debian  minil.toml
 Changes   MANIFEST  META.yml   cpanfile   lib	  t
 ```
 
-Reflexões e Próximos Passos
+## Reflexões e Próximos Passos
 
 Embora não tenha conseguido concluir a configuração do ambiente conforme o tutorial, tive muitos aprendizados sobre o debian.
 

@@ -13,43 +13,26 @@ tags:
  - packaging
 ---
 
-Como eu e minha dupla estávamos fazendo em paralelo as contribuições para o projeto Nushell, resolvemos nos desafiar ainda mais e empacotar o shell para o Debian. Já tínhamos uma boa base teórica das aulas e tutoriais, mas na prática sempre surgem desafios inesperados. Meu nome é Laís, e junto com meus colegas Jorge e Thiago, enfrentamos essa missão com muita determinação. Aqui vou compartilhar a nossa jornada, abordando os principais passos e obstáculos que encontramos pelo caminho.
+Como foi relatado em post anteriores, tive alguns problemas com a configuração do Debian e minha dupla, Jorge Harrison, teve dengue durante aquela aula, então estávamos um pouco atrasados nessa etapa do empacotamento mas queriamos passar pela experiência
+Por outro lado, como nos estávamos fazendo em paralelo as contribuições para o projeto Nushell e já estavamos relativamente adiantados nessas contribuições do projeto final, decidimos usar uma das aulas para poder focar na etapa do empacotamento e assim passar pela experiência completa de MAC0470
+Como além de nós, o Thiago Duvanel também estava contribuindo com o Nushell e estava adiantado, ele se juntou com a gente e nos decidimos criar um pacote do Nushell para o Debian. Já tínhamos uma boa base teórica das aulas e tutoriais, mas na prática sempre surgem desafios inesperados. 
 
-### Iniciando Máquina Virtual
-Para garantir um ambiente padronizado e com as versões mais recentes dos pacotes, iniciamos criando uma máquina virtual com o Debian Testing. Utilizamos o Virt Manager, ferramenta já familiar para nós desde o começo da disciplina. Com a VM configurada, seguimos instalando todas as dependências necessárias para o processo de empacotamento, conforme indicado nos tutoriais que estávamos seguindo.
+## Iniciando Máquina Virtual
+Para garantir um ambiente padronizado e com as versões mais recentes dos pacotes, precisariamos de uma máquina virtual com o Debian Testing. De início, cada um tentou fazer no seu respectivo computador, mas eu e o Jorge na hora que tentamos setar uma vm tivemos problemas com a senha, erramos o comando de mudar a senha e no fim, como o Thiago já estava com a vm prontinha e configurada, só nos juntamos um do lado do outro e fizemos juntos pelo computador dele.
+Com a VM configurada, seguimos instalando todas as dependências necessárias para o processo de empacotamento, conforme indicado nos tutoriais que estávamos seguindo.
 
-### Criando o Pacote para o Nushell
-Com o ambiente pronto, era hora de colocar a mão na massa. Nossa primeira tentativa foi com o dh-cargo, uma ferramenta específica para empacotamento de projetos em Rust. No entanto, não encontramos suporte suficiente para seguir adiante com essa ferramenta. Decidimos então experimentar o debcargo, que se mostrou mais adequado para nossas necessidades.
-
-### Preparando o Setup
-Optamos por utilizar um container com Debian Testing para garantir a consistência do ambiente. Instalamos todas as dependências listadas no tutorial, clonamos o repositório do debcargo-conf e executamos o script ./update.sh nu para obter o código fonte do Nushell.
+## Criando o Pacote para o Nushell
+Com o ambiente pronto, nossa primeira tentativa foi com o dh-cargo, uma ferramenta específica para empacotamento de projetos em Rust. Mas não encontramos muito material e documentação sobre. 
+Decidimos então experimentar o debcargo, usando um container com Debian Testing para garantir a consistência do ambiente. Instalamos todas as dependências, clonamos o repositório do debcargo-conf e executamos o script ./update.sh nu
 
 
-###Ajustando os Arquivos Necessários
+## Ajustando os Arquivos Necessários
 Os principais arquivos que precisávamos ajustar estavam na pasta debian/. Isso incluía o copyright, onde listamos todas as licenças usadas no projeto, o control, onde especificamos as dependências, e o changelog, onde registramos as mudanças desde a última versão. Com esses arquivos ajustados, executamos o script ./build.sh nu para gerar o arquivo .dsc.
 
-### O Problema das Dependências
-Ao tentar construir o pacote final, nos deparamos com um grande obstáculo: um vasto número de dependências que precisavam ser empacotadas. A lista incluía desde o rustc:native até diversas bibliotecas específicas do Rust. Essas dependências são essenciais para o funcionamento do Nushell, mas empacotá-las todas exigiria um esforço colossal e muito tempo de trabalho.
+## O Problema das Dependências
+Ao tentar construir o pacote final, o principal problema foi um número gigante de dependências que precisavam ser empacotadas. Essas dependências são essenciais para o funcionamento do Nushell, mas empacotá-las todas exigiria um esforço que fugia do escopo da disciplina e muito tempo de trabalho.
 
 
-### Reflexões Sobre a Experiência
-Apesar dos desafios e das dificuldades encontradas, essa experiência foi extremamente enriquecedora. Aprendemos muito sobre o processo de empacotamento para o Debian, desde a preparação do ambiente até a resolução de problemas com dependências. Foi gratificante ver como cada etapa contribui para a criação de um pacote funcional, e essa experiência certamente nos fez valorizar ainda mais os pacotes já disponíveis nos repositórios de distribuição.
+## Reflexões Sobre a Experiência
+Apesar dos desafios e das dificuldades encontradas, essa experiência foi legal já que aprendemos muito sobre o processo de empacotamento para o Debian, desde a preparação do ambiente até a resolução de problemas com dependências. Além disso, essa experiência certamente nos fez valorizar ainda mais os pacotes já disponíveis nos repositórios de distribuição.
 
-Empacotar um projeto complexo como o Nushell para o Debian nos mostrou a importância da colaboração e do conhecimento compartilhado. Embora não tenhamos conseguido concluir todas as etapas, o aprendizado foi imenso e nos deixou mais preparados para futuros desafios.
-
-
-Resumo:
-1. Passando pelos primeiros passos da disciplina:
--O que é softaware livre e licenças
-- Palestra sobre Kernel e contribuição
-- Palestra de licenças com Nelson
-- Workshop configuração de ambiente com Kernel
-- Contribuição do Kernel
-- Aula do kw contribuição kw
-- Empacotamento debian
-- Nullshel
-- 
-
-tinha faltado botar a smart completion do --alert do kw
-
-foi setar uma vm, mas o thiago tinha uma vm pronta

@@ -16,13 +16,13 @@ tags:
 
 Na segunda etapa da disciplina MAC0470 (Desenvolvimento de Software Livre), eu e minha dupla tínhamos que escolher um projeto para continuar contribuindo. Acabamos escolhendo o Nushell, um shell moderno e inovador que visa trazer o poder das pipelines de dados do UNIX para um novo nível de usabilidade e funcionalidade.
 
-### O que é o Nushell? 
+## O que é o Nushell? 
 O Nushell é uma shell orientada a objetos, projetada para trabalhar com dados estruturados como tabelas e registros, facilitando a manipulação de informações de maneira intuitiva e poderosa. Diferente de shells tradicionais como Bash ou Zsh, que tratam a maioria das saídas como texto, o Nushell trata a saída de comandos como dados estruturados, permitindo operações complexas com mais facilidade.
 
-### Set up do ambiente
+## Set up do ambiente
 Para poder contribuir com o Nushell, foi necessário configurar meu ambiente de desenvolvimento:
 
-#### Instalar Rust
+## Instalar Rust
  O Nushell é escrito em Rust, então o primeiro passo foi instalar o compilador Rust e a ferramenta de gerenciamento de pacotes Cargo.
 ```bash
 curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
@@ -41,7 +41,7 @@ nu
 ```
 
 
-### 1ª contribuição: git commit
+## 1ª contribuição: git commit
 Resolvi começar com algo relativamente simples para entender como funciona o ciclo de contribuição dos scripts do Nushell. Observei que o comando git commit tinha poucas opções de completion implementadas. Utilizando a saída do comando git commit --help, fui capaz de identificar todas as opções e escrever o código de completion.
 
 Aqui está o resultado da minha contribuição:
@@ -110,14 +110,14 @@ export extern "git commit" [
 
 Depois de fazer as mudanças fiz um pull request e estou no aguardo da resposta para ver se foi aceito ou não
 
-### Próximos passos
+## Próximos passos
 Agora que concluí minha primeira contribuição, estou animada para continuar trabalhando no Nushell e explorar mais áreas onde posso contribuir. 
 
 Pretendo explorar mais partes do Git, com as quais tenho mais familiaridade, especialmente aquelas que ainda não possuem muitas completions. Além disso, estou interessada em expandir minhas contribuições para outras ferramentas e comandos dentro do Nushell, aprendendo e ajudando a melhorar a experiência geral dos usuários.
 
 
 
-### Atualizações
+## Atualizações
 Horas depois de abrir o Pull Request eles aceitaram e mergearam meu commit. Porém no dia 5 de junho às 9:21 recebi um email dizendo que o commit tinha sido revertido porque se rodasse os comando na ordem abaixo, quebrava:
 
 ```bash

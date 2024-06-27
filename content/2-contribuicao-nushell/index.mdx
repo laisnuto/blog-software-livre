@@ -14,11 +14,11 @@ tags:
 
 A primeira contribuição que fiz para o Nushell, focada em expandir as completions para o comando git commit, foi aceita e mergeada algumas horas após o envio, o que me deixou muito animada para continuar contribuindo. Decidi focar nas completions do comando git pull, que ainda estavam bastante incompletas.
 
-### Explorando o comando git pull
+## Explorando o comando git pull
 
 O comando git pull é uma das operações mais frequentes para quem trabalha com Git, trazendo mudanças do repositório remoto para o local. Ao verificar a implementação atual no Nushell, percebi que havia uma boa margem para adicionar mais opções, especialmente para tornar o uso do comando mais intuitivo e informativo.
 
-#### Completions antes da minha contribuição:
+## Completions antes da minha contribuição:
 
 ```bash
 # Pull changes
@@ -29,7 +29,7 @@ export extern "git pull" [
 ]
 ```
 
-#### Implementando novas completions
+## Implementando novas completions
 
 Ao investigar a saída do comando git pull --help, cataloguei as opções disponíveis e comecei a implementar as completions correspondentes. O objetivo era não só adicionar mais opções, mas também garantir que elas fossem acompanhadas de descrições claras para auxiliar os usuários do Nushell.
 
@@ -88,7 +88,7 @@ export extern "git pull" [
 ]
 ```
 
-### Aprendizado adicional sobre git pull
+## Aprendizado adicional sobre git pull
 
 Apesar de ver que já tinham colocado a completion do git pull rebase, percebi que o parâmetro --rebase do git pull tinha mais nuances do que o esperado. A documentação do Git especifica várias formas de usar o --rebase, como false, true, merges ou interactive. Para refletir isso no Nushell, implementei uma função especial que lista essas opções:
 
@@ -100,7 +100,7 @@ def "nu-complete git pull rebase" [] {
 
 Essa função agora permite que os usuários do Nushell vejam todas as opções de rebase disponíveis diretamente no prompt de comando, facilitando a utilização correta do git pull com rebase.
 
-### Conclusão
+## Conclusão
 
 Com minha segunda contribuição para o Nushell, pude não só aprofundar meu conhecimento técnico sobre Git, mas também melhorar a experiência de outros usuários do Nushell. 
 
